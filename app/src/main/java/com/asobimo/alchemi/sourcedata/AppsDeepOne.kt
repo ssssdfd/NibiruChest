@@ -14,7 +14,7 @@ import kotlin.coroutines.suspendCoroutine
 
 class AppsDeepOne {
     private val myScope = CoroutineScope(Dispatchers.IO)
-    suspend fun vernytAppsFlyer(context: Context, app_id:String):MutableMap<String, Any>?= suspendCoroutine {
+    suspend fun vernytAppsFlyer(cantext: Context, app_id:String):MutableMap<String, Any>?= suspendCoroutine {
         var kluch = "QqGQfa4XGkGmmiMDUEgLHE"
         AppsFlyerLib.getInstance().init(kluch, object : AppsFlyerConversionListener {
             override fun onConversionDataSuccess(p0: MutableMap<String, Any>?) {
@@ -33,15 +33,17 @@ class AppsDeepOne {
             override fun onConversionDataFail(p0: String?) {
                 it.resume(null)
             }
-            override fun onAppOpenAttribution(p0: MutableMap<String, String>?) {}
             override fun onAttributionFailure(p0: String?) {}
-        }, context)
-        AppsFlyerLib.getInstance().start(context)
+            override fun onAppOpenAttribution(p0: MutableMap<String, String>?) {}
+        }, cantext)
+        AppsFlyerLib.getInstance().start(cantext)
     }
 
     suspend fun vernytDeepLink(context: Context):String = suspendCoroutine {
         AppLinkData.fetchDeferredAppLinkData(context){result->
               it.resume(result?.targetUri.toString())
+            /*val deep = "myapp://test1_test2_test3_test4_test5"
+            it.resume(deep)*/
         }
     }
 

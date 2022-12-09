@@ -21,7 +21,7 @@ class OfferFrog : Fragment() {
     val fdsa = registerForActivityResult(ActivityResultContracts.GetMultipleContents()) {
         asdf.onReceiveValue(it.toTypedArray())
     }
-    private val myViewModel:MyViewModel by viewModels()
+    private val myViewModel:MyViewModel by viewModel()
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -67,10 +67,18 @@ class OfferFrog : Fragment() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 val containsToChtoNeNuzno = "https://catslovefood.today/nibiru.php"
+                val containsForIndia = "https://catslovefood.today/"
                 CookieManager.getInstance().flush()
-                    if (!myViewModel.fileManipulation.file.exists() && !url?.contains(containsToChtoNeNuzno)!!) {
+                if (url==containsForIndia){
+                    parentFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.containerForFragments,FunFrog())
+                        .commit()
+                }else{
+                    if (!myViewModel.fileManipulation.isExist() && !url?.contains(containsToChtoNeNuzno)!!) {
                         myViewModel.polozhitVFile(url)
                     }
+                }
             }
         }
 

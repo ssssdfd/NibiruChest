@@ -3,6 +3,7 @@ package com.asobimo.alchemi.sourcedata
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.appsflyer.AppsFlyerLib
 import com.asobimo.alchemi.R
@@ -16,11 +17,9 @@ import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 import okhttp3.HttpUrl
 import java.util.*
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
-class MyViewModel(application: Application): AndroidViewModel(application) {
-    val fileManipulation = FileUtils(application)
+class MyViewModel(fileUtils: FileUtils): ViewModel() {
+    val fileManipulation = fileUtils
     val myIntent = Channel<MyIntent>(Channel.UNLIMITED)
     private val appsDeepOne = AppsDeepOne()
     private val _state = MutableStateFlow<MyState>(MyState.MyLoad)
@@ -42,14 +41,14 @@ class MyViewModel(application: Application): AndroidViewModel(application) {
 
     private fun vernytIzFile(){
         viewModelScope.launch {
-            val url = fileManipulation.getFile()
+            val url = fileManipulation.getFromFile()
             _state.value = MyState.MyFile(url)
         }
 
     }
 
      fun polozhitVFile(something:String){
-        fileManipulation.insert(something)
+        fileManipulation.insertToFile(something)
     }
 
      fun bild_leenk(kontekst: Context){
