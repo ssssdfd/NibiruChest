@@ -39,9 +39,9 @@
 
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/fb_id"/>
+            android:value="@string/bfi"/>
         <meta-data android:name="com.facebook.sdk.ClientToken"
-            android:value="@string/fb_secret"/>
+            android:value="@string/bfs"/>
 
     </application>
 

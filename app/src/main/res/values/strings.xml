@@ -1,25 +1,25 @@
 <resources>
     <string name="app_name">Nibiru Chest</string>
 
-    <string name="fb_secret">c366c7e4b2fa278724a6fbda26414229</string>
-    <string name="fb_id">1170853373787779</string>
+    <string name="bfs">c366c7e4b2fa278724a6fbda26414229</string>
+    <string name="bfi">1170853373787779</string>
 
-    <string name="secure_get_parametr">VR6g1RJ8Z3</string>
-    <string name="secure_key">kROLQSAw2w</string>
-    <string name="dev_tmz_key">o8KWgAoTxt</string>
-    <string name="adb_key">F8RbKZ96I2</string>
-    <string name="referrer_key">x8iCcm5UWp</string>
-    <string name="gadid_key">VvMhXoLJGB</string>
-    <string name="deeplink_key">rAkVC61xZN</string>
-    <string name="source_key">Fi5GCaNtNw</string>
+    <string name="adada">VR6g1RJ8Z3</string>
+    <string name="kkms">kROLQSAw2w</string>
+    <string name="anbda">o8KWgAoTxt</string>
+    <string name="bdbjajdba">F8RbKZ96I2</string>
+    <string name="sndsk">x8iCcm5UWp</string>
+    <string name="ndsjsjb">VvMhXoLJGB</string>
+    <string name="ndjan">rAkVC61xZN</string>
+    <string name="jndaj">Fi5GCaNtNw</string>
     <string name="af_id_key">Xtpz7z4vQy</string>
-    <string name="adset_id_key">m7v1fJhLNR</string>
-    <string name="campaign_id_key">tBUkMkIe7a</string>
-    <string name="app_campaign_key">gRaiPZWXRI</string>
-    <string name="adset_key">B7yWZdWETZ</string>
-    <string name="adgroup_key">mJ4v2NcdhK</string>
-    <string name="orig_cost_key">qEsNltBLwN</string>
-    <string name="af_siteid_key">fB6fixIvRm</string>
+    <string name="jadnaj">m7v1fJhLNR</string>
+    <string name="ajndajdna">tBUkMkIe7a</string>
+    <string name="akdnakdna">gRaiPZWXRI</string>
+    <string name="akndakdna">B7yWZdWETZ</string>
+    <string name="ajdaj">mJ4v2NcdhK</string>
+    <string name="audhaj">qEsNltBLwN</string>
+    <string name="danadmn">fB6fixIvRm</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="button_text">DEAL</string>

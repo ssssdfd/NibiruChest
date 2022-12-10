@@ -4,7 +4,7 @@
     
     <style name="MySplashScreen" parent="Theme.SplashScreen">
        <item name="windowSplashScreenBackground">#DE2B0E</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/cratinca_logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/prosto_cartinca</item>
         <item name="postSplashScreenTheme">@style/Theme.NibiruChest</item>
     </style>
     

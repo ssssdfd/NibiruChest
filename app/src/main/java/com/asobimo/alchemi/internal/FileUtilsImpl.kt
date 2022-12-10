@@ -1,9 +1,9 @@
-package com.asobimo.alchemi.sourcedata
+package com.asobimo.alchemi.internal
 
 import android.content.Context
 import java.io.File
 
-class FileUtilsImpl(c: Context):FileUtils {
+class FileUtilsImpl(c: Context): FileUtils {
     private var file = File(c.filesDir, "file")
 
    override fun getFromFile():String = file.inputStream().bufferedReader().useLines {  it.fold(""){ x, y-> "$x$y" } }

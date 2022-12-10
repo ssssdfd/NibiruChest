@@ -1,4 +1,4 @@
-package com.asobimo.alchemi.sourcedata
+package com.asobimo.alchemi.internal
 
 interface FileUtils {
     fun getFromFile():String

@@ -2,22 +2,19 @@ package com.asobimo.alchemi
 
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import com.asobimo.alchemi.intentandstate.MyIntent
-import com.asobimo.alchemi.intentandstate.MyState
-import com.asobimo.alchemi.sourcedata.MyViewModel
+import com.asobimo.alchemi.intentandstate.MoiSobotia
+import com.asobimo.alchemi.intentandstate.MoiSostoyania
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ZargruzkaFrog : Fragment() {
-    private val myViewModel:MyViewModel by viewModel()
+    private val myViewModel: MyViewModel by viewModel()
     private lateinit var progressBar: ProgressBar
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val fragment = inflater.inflate(R.layout.fragment_zargruzka_frog, container, false)
@@ -36,10 +33,8 @@ class ZargruzkaFrog : Fragment() {
         }else{
             lifecycleScope.launch {
                 if (myViewModel.fileManipulation.isExist()){
-                    Log.d("TAAG","File exist")
-                    myViewModel.myIntent.send(MyIntent.GetUrl)
+                    myViewModel.moiSobotia.send(MoiSobotia.GetU_R_L)
                 }else{
-                    Log.d("TAAG","File doesn't exist")
                     myViewModel.bild_leenk(requireContext())
                 }
             }
@@ -49,21 +44,17 @@ class ZargruzkaFrog : Fragment() {
         lifecycleScope.launch {
             myViewModel.state.collect{state->
                 when(state){
-                    is MyState.MyLoad -> {
-                        Log.d("TAAG", "Load....")
+                    is MoiSostoyania.Moi_Load -> {
                         progressBar.visibility = View.VISIBLE
                     }
-                    is MyState.MyApps -> {
-                        Log.d("TAAG", "AppsFlyer state:${state.url}")
-                        navigateToOfferFrog(state.url!!)
+                    is MoiSostoyania.Moi_Apps -> {
+                        navigateToOfferFrog(state.u_r_l!!)
                     }
-                    is MyState.MyDeep -> {
-                        Log.d("TAAG", "DeepLink state:${state.url}")
-                        navigateToOfferFrog(state.url!!)
+                    is MoiSostoyania.Moi_Deep -> {
+                        navigateToOfferFrog(state.u_r_l!!)
                     }
-                    is MyState.MyFile -> {
-                        Log.d("TAAG", "From file:${state.url}")
-                        navigateToOfferFrog(state.url!!)
+                    is MoiSostoyania.Moi_File -> {
+                        navigateToOfferFrog(state.u_r_l!!)
                     }
                 }
             }

@@ -11,8 +11,6 @@ import android.view.ViewGroup
 import android.webkit.*
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.viewModels
-import com.asobimo.alchemi.sourcedata.MyViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OfferFrog : Fragment() {
@@ -21,7 +19,7 @@ class OfferFrog : Fragment() {
     val fdsa = registerForActivityResult(ActivityResultContracts.GetMultipleContents()) {
         asdf.onReceiveValue(it.toTypedArray())
     }
-    private val myViewModel:MyViewModel by viewModel()
+    private val myViewModel: MyViewModel by viewModel()
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
